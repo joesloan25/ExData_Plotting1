@@ -3,7 +3,7 @@
 #Datetime is added as a 10th column for graphing via transform
 data <-read.table("./household_power_consumption.txt",
                   sep = ";", na.strings = "?", nrows = 2880, skip = 66637)
-colnames(data) = as.character(read.table("./household_power_consumption.txt", sep = ";",
+colnames(data) <- as.character(read.table("./household_power_consumption.txt", sep = ";",
                                          nrow = 1, as.is = 1:9))
 data <-transform(data, datetime =as.POSIXlt(paste(Date,Time), format ="%d/%m/%Y %H:%M:%S"))
 png(filename = "plot2.png")
